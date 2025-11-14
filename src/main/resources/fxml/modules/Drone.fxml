@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.aerosuite.view.modules.DroneController"
+      spacing="15" styleClass="content-area">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="20">
+        <Label text="Drone Flight Planner & Logger" styleClass="card-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="+ New Flight Plan" onAction="#newFlightPlan" styleClass="button-success"/>
+    </HBox>
+
+    <TabPane tabClosingPolicy="UNAVAILABLE">
+        <Tab text="Flight Planner">
+            <VBox spacing="15" styleClass="card">
+                <padding>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
+                </padding>
+
+                <Label text="Mission Planning" styleClass="section-title"/>
+
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Drone:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <ComboBox fx:id="droneCombo" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="200"/>
+
+                    <Label text="Mission Type:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <ComboBox fx:id="missionTypeCombo" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="200">
+                        <items>
+                            <javafx.collections.FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Survey"/>
+                                <String fx:value="Inspection"/>
+                                <String fx:value="Photography"/>
+                                <String fx:value="Mapping"/>
+                            </javafx.collections.FXCollections>
+                        </items>
+                    </ComboBox>
+
+                    <Label text="Location:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <TextField fx:id="locationField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <Label text="Altitude (m):" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <TextField fx:id="altitudeField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                    <Label text="Speed (m/s):" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <TextField fx:id="speedField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                </GridPane>
+
+                <Label text="Waypoints:" styleClass="section-title"/>
+                <TextArea fx:id="waypointsArea" prefRowCount="5" promptText="Enter waypoints (one per line)"/>
+
+                <HBox spacing="10">
+                    <Button text="Calculate" onAction="#calculateMission"/>
+                    <Label text="Estimated Duration:"/>
+                    <Label fx:id="durationLabel" text="0 min" styleClass="label-bold"/>
+                    <Label text="Distance:"/>
+                    <Label fx:id="distanceLabel" text="0 m" styleClass="label-bold"/>
+                </HBox>
+            </VBox>
+        </Tab>
+
+        <Tab text="Flight Log">
+            <VBox spacing="15" styleClass="card">
+                <padding>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
+                </padding>
+
+                <TableView fx:id="flightLogTable" prefHeight="400">
+                    <columns>
+                        <TableColumn text="Date" prefWidth="120"/>
+                        <TableColumn text="Drone" prefWidth="150"/>
+                        <TableColumn text="Location" prefWidth="200"/>
+                        <TableColumn text="Mission" prefWidth="150"/>
+                        <TableColumn text="Duration" prefWidth="100"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+        <Tab text="Battery Manager">
+            <VBox spacing="15" styleClass="card">
+                <padding>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
+                </padding>
+
+                <Label text="Battery Status" styleClass="section-title"/>
+
+                <TableView fx:id="batteryTable" prefHeight="300">
+                    <columns>
+                        <TableColumn text="Battery ID" prefWidth="150"/>
+                        <TableColumn text="Cycle Count" prefWidth="120"/>
+                        <TableColumn text="Status" prefWidth="120"/>
+                        <TableColumn text="Notes" prefWidth="250"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+    </TabPane>
+
+</VBox>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.aerosuite.view.modules.WeightBalanceController"
+            fitToWidth="true">
+    <VBox spacing="15" styleClass="content-area">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+
+        <Label text="Weight & Balance Simulator" styleClass="card-title"/>
+
+        <HBox spacing="20">
+            <VBox spacing="15" styleClass="card" prefWidth="400">
+                <Label text="Aircraft Selection" styleClass="section-title"/>
+                
+                <Label text="Select Aircraft Type:"/>
+                <ComboBox fx:id="aircraftTypeCombo" prefWidth="350">
+                    <items>
+                        <javafx.collections.FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Cessna 172"/>
+                            <String fx:value="Piper PA-28"/>
+                            <String fx:value="Diamond DA40"/>
+                            <String fx:value="Airbus A320 (Training)"/>
+                        </javafx.collections.FXCollections>
+                    </items>
+                </ComboBox>
+
+                <Separator/>
+
+                <Label text="Weight Configuration" styleClass="section-title"/>
+
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Pilot Weight:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="pilotWeightField" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="100"/>
+                    <Label text="lbs" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+
+                    <Label text="Co-Pilot Weight:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <TextField fx:id="copilotWeightField" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="100"/>
+                    <Label text="lbs" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+
+                    <Label text="Passenger Weight:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <TextField fx:id="passengerWeightField" GridPane.columnIndex="1" GridPane.rowIndex="2" prefWidth="100"/>
+                    <Label text="lbs" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+
+                    <Label text="Baggage Weight:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <TextField fx:id="baggageWeightField" GridPane.columnIndex="1" GridPane.rowIndex="3" prefWidth="100"/>
+                    <Label text="lbs" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+
+                    <Label text="Fuel Weight:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <TextField fx:id="fuelWeightField" GridPane.columnIndex="1" GridPane.rowIndex="4" prefWidth="100"/>
+                    <Label text="lbs" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+                </GridPane>
+
+                <HBox spacing="10">
+                    <Button text="Calculate" onAction="#calculateWeightBalance" styleClass="button-success"/>
+                    <Button text="Clear" onAction="#clearForm"/>
+                    <Button text="Save Config" onAction="#saveConfiguration"/>
+                </HBox>
+            </VBox>
+
+            <VBox HBox.hgrow="ALWAYS" spacing="15" styleClass="card">
+                <Label text="Results" styleClass="section-title"/>
+
+                <GridPane hgap="15" vgap="10">
+                    <Label text="Total Weight:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="label-bold"/>
+                    <Label fx:id="totalWeightLabel" text="0 lbs" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                    <Label text="CG Position:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="label-bold"/>
+                    <Label fx:id="cgPositionLabel" text="0.0 in" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Label text="Status:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="label-bold"/>
+                    <Label fx:id="statusLabel" text="Not Calculated" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <Label text="Max Weight:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <Label fx:id="maxWeightLabel" text="0 lbs" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                    <Label text="Weight Remaining:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <Label fx:id="weightRemainingLabel" text="0 lbs" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                </GridPane>
+
+                <Separator/>
+
+                <Label text="CG Envelope Chart" styleClass="section-title"/>
+                <LineChart fx:id="cgChart" prefHeight="300" legendVisible="false">
+                    <xAxis>
+                        <NumberAxis label="CG Position (inches)" side="BOTTOM"/>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Weight (lbs)" side="LEFT"/>
+                    </yAxis>
+                </LineChart>
+            </VBox>
+        </HBox>
+
+    </VBox>
+</ScrollPane>

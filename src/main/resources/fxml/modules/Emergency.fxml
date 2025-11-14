@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.aerosuite.view.modules.EmergencyController"
+      spacing="15" styleClass="content-area">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Emergency Checklist Trainer" styleClass="card-title"/>
+
+    <HBox spacing="20">
+        <VBox spacing="15" styleClass="card" prefWidth="250">
+            <Label text="Emergency Scenarios" styleClass="section-title"/>
+            
+            <ListView fx:id="emergencyList" prefHeight="350">
+                <items>
+                    <javafx.collections.FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Engine Failure"/>
+                        <String fx:value="Engine Fire"/>
+                        <String fx:value="Electrical Failure"/>
+                        <String fx:value="Loss of Oil Pressure"/>
+                        <String fx:value="Smoke in Cockpit"/>
+                        <String fx:value="Emergency Descent"/>
+                    </javafx.collections.FXCollections>
+                </items>
+            </ListView>
+
+            <Button text="Start Training" onAction="#startTraining" styleClass="button-success" maxWidth="Infinity"/>
+            <Button text="Timed Challenge" onAction="#startTimedChallenge" styleClass="button-warning" maxWidth="Infinity"/>
+        </VBox>
+
+        <VBox HBox.hgrow="ALWAYS" spacing="15" styleClass="card">
+            <Label text="Checklist Steps" styleClass="section-title"/>
+            
+            <TextArea fx:id="checklistArea" prefRowCount="20" wrapText="true" editable="false"/>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Time Elapsed:"/>
+                <Label fx:id="timerLabel" text="00:00" styleClass="label-bold"/>
+            </HBox>
+        </VBox>
+    </HBox>
+
+</VBox>

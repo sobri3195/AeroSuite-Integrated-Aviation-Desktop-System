@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.aerosuite.view.modules.SimulatorController"
+      spacing="15" styleClass="content-area">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="2D Flight Simulator Trainer" styleClass="card-title"/>
+
+    <HBox spacing="20">
+        <VBox spacing="15" styleClass="card" prefWidth="300">
+            <Label text="Flight Controls" styleClass="section-title"/>
+
+            <Label text="Throttle:"/>
+            <Slider fx:id="throttleSlider" min="0" max="100" value="50" showTickLabels="true" showTickMarks="true"/>
+
+            <Label text="Pitch:"/>
+            <Slider fx:id="pitchSlider" min="-30" max="30" value="0" showTickLabels="true" showTickMarks="true"/>
+
+            <Label text="Roll:"/>
+            <Slider fx:id="rollSlider" min="-45" max="45" value="0" showTickLabels="true" showTickMarks="true"/>
+
+            <Separator/>
+
+            <Label text="Training Mode" styleClass="section-title"/>
+            <ComboBox fx:id="modeCombo" prefWidth="250">
+                <items>
+                    <javafx.collections.FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Straight & Level"/>
+                        <String fx:value="Climb"/>
+                        <String fx:value="Descent"/>
+                        <String fx:value="Slow Flight"/>
+                        <String fx:value="Stall Practice"/>
+                    </javafx.collections.FXCollections>
+                </items>
+            </ComboBox>
+
+            <Button text="Start Simulation" onAction="#startSimulation" styleClass="button-success" maxWidth="Infinity"/>
+            <Button text="Reset" onAction="#resetSimulation" maxWidth="Infinity"/>
+        </VBox>
+
+        <VBox HBox.hgrow="ALWAYS" spacing="15" styleClass="card">
+            <Label text="Flight Display" styleClass="section-title"/>
+
+            <Canvas fx:id="displayCanvas" width="600" height="400" style="-fx-background-color: #87CEEB;"/>
+
+            <Label text="Flight Instruments" styleClass="section-title"/>
+
+            <GridPane hgap="20" vgap="10">
+                <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <Label text="Airspeed" styleClass="label-bold"/>
+                    <Label fx:id="airspeedLabel" text="0 kts" style="-fx-font-size: 18px;"/>
+                </VBox>
+
+                <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <Label text="Altitude" styleClass="label-bold"/>
+                    <Label fx:id="altitudeLabel" text="0 ft" style="-fx-font-size: 18px;"/>
+                </VBox>
+
+                <VBox spacing="5" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                    <Label text="Vertical Speed" styleClass="label-bold"/>
+                    <Label fx:id="verticalSpeedLabel" text="0 fpm" style="-fx-font-size: 18px;"/>
+                </VBox>
+
+                <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <Label text="Heading" styleClass="label-bold"/>
+                    <Label fx:id="headingLabel" text="000°" style="-fx-font-size: 18px;"/>
+                </VBox>
+
+                <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <Label text="Pitch" styleClass="label-bold"/>
+                    <Label fx:id="pitchLabel" text="0°" style="-fx-font-size: 18px;"/>
+                </VBox>
+
+                <VBox spacing="5" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <Label text="Roll" styleClass="label-bold"/>
+                    <Label fx:id="rollLabel" text="0°" style="-fx-font-size: 18px;"/>
+                </VBox>
+            </GridPane>
+
+            <Label fx:id="feedbackLabel" text="Ready to fly" style="-fx-text-fill: #27ae60; -fx-font-weight: bold;"/>
+        </VBox>
+    </HBox>
+
+</VBox>
