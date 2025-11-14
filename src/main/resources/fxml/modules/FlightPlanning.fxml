@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.aerosuite.view.modules.FlightPlanningController"
+            fitToWidth="true">
+    <VBox spacing="15" styleClass="content-area">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+
+        <Label text="Flight Planning Assistant" styleClass="card-title"/>
+
+        <HBox spacing="20">
+            <VBox HBox.hgrow="ALWAYS" spacing="15" styleClass="card">
+                <Label text="Flight Plan Details" styleClass="section-title"/>
+
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Plan Name:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="planNameField" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="200"/>
+
+                    <Label text="Pilot:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <ComboBox fx:id="pilotCombo" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="200"/>
+
+                    <Label text="Aircraft:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <ComboBox fx:id="aircraftCombo" GridPane.columnIndex="1" GridPane.rowIndex="2" prefWidth="200"/>
+
+                    <Label text="Departure:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <TextField fx:id="departureField" GridPane.columnIndex="1" GridPane.rowIndex="3" promptText="ICAO code"/>
+
+                    <Label text="Arrival:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <TextField fx:id="arrivalField" GridPane.columnIndex="1" GridPane.rowIndex="4" promptText="ICAO code"/>
+
+                    <Label text="Route:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                    <TextField fx:id="routeField" GridPane.columnIndex="1" GridPane.rowIndex="5" promptText="Waypoints"/>
+
+                    <Label text="Altitude (ft):" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+                    <TextField fx:id="altitudeField" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+                    <Label text="Ground Speed (kts):" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+                    <TextField fx:id="groundSpeedField" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+
+                    <Label text="Wind Direction:" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+                    <TextField fx:id="windDirectionField" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+
+                    <Label text="Wind Speed (kts):" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
+                    <TextField fx:id="windSpeedField" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+                </GridPane>
+
+                <HBox spacing="10">
+                    <Button text="Calculate" onAction="#calculateFlightPlan" styleClass="button-success"/>
+                    <Button text="Clear" onAction="#clearForm"/>
+                    <Button text="Save Plan" onAction="#savePlan"/>
+                </HBox>
+            </VBox>
+
+            <VBox spacing="15" styleClass="card" prefWidth="400">
+                <Label text="Fuel Planning" styleClass="section-title"/>
+
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Taxi Fuel:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="taxiFuelField" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="100"/>
+                    <Label text="gal" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+
+                    <Label text="Trip Fuel:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <TextField fx:id="tripFuelField" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="100"/>
+                    <Label text="gal" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+
+                    <Label text="Reserve Fuel:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <TextField fx:id="reserveFuelField" GridPane.columnIndex="1" GridPane.rowIndex="2" prefWidth="100"/>
+                    <Label text="gal" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+
+                    <Separator GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="3"/>
+
+                    <Label text="Total Fuel Required:" GridPane.columnIndex="0" GridPane.rowIndex="4" styleClass="label-bold"/>
+                    <Label fx:id="totalFuelLabel" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="4" styleClass="label-bold"/>
+                    <Label text="gal" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+                </GridPane>
+
+                <Separator/>
+
+                <Label text="Flight Times" styleClass="section-title"/>
+
+                <GridPane hgap="10" vgap="10">
+                    <Label text="ETD:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="etdField" GridPane.columnIndex="1" GridPane.rowIndex="0" promptText="HH:MM"/>
+
+                    <Label text="ETA:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <Label fx:id="etaLabel" text="--:--" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="label-bold"/>
+
+                    <Label text="Duration:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <Label fx:id="durationLabel" text="0.0 hrs" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="label-bold"/>
+                </GridPane>
+            </VBox>
+        </HBox>
+
+        <VBox spacing="10" styleClass="card">
+            <Label text="NOTAM & Weather" styleClass="section-title"/>
+            
+            <Label text="NOTAM:"/>
+            <TextArea fx:id="notamArea" prefRowCount="3" promptText="Enter NOTAM information..."/>
+            
+            <Label text="Weather:"/>
+            <TextArea fx:id="weatherArea" prefRowCount="3" promptText="Enter weather information..."/>
+        </VBox>
+
+        <HBox spacing="10">
+            <CheckBox fx:id="saveAsTemplateCheck" text="Save as Template"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Load Template" onAction="#loadTemplate"/>
+        </HBox>
+
+    </VBox>
+</ScrollPane>

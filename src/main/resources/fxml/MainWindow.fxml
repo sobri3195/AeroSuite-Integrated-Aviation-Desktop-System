@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.aerosuite.view.MainWindowController"
+            fx:id="mainBorderPane"
+            prefHeight="800.0" prefWidth="1400.0">
+
+    <top>
+        <VBox styleClass="header">
+            <HBox alignment="CENTER_LEFT" spacing="20" styleClass="header-bar">
+                <padding>
+                    <Insets top="15" right="20" bottom="15" left="20"/>
+                </padding>
+                <Label text="✈ AeroSuite" styleClass="app-title">
+                    <font>
+                        <Font name="System Bold" size="24"/>
+                    </font>
+                </Label>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="titleLabel" text="Dashboard" styleClass="module-title">
+                    <font>
+                        <Font name="System" size="18"/>
+                    </font>
+                </Label>
+            </HBox>
+        </VBox>
+    </top>
+
+    <left>
+        <VBox fx:id="sidebarMenu" spacing="5" styleClass="sidebar" prefWidth="250">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label text="MAIN" styleClass="sidebar-section">
+                <font>
+                    <Font name="System Bold" size="11"/>
+                </font>
+            </Label>
+            <Button text="📊 Dashboard" onAction="#loadDashboard" styleClass="sidebar-button" maxWidth="Infinity"/>
+
+            <Separator/>
+
+            <Label text="FLIGHT OPERATIONS" styleClass="sidebar-section">
+                <font>
+                    <Font name="System Bold" size="11"/>
+                </font>
+                <VBox.margin>
+                    <Insets top="10"/>
+                </VBox.margin>
+            </Label>
+            <Button text="📔 Flight Logbook" onAction="#loadLogbook" styleClass="sidebar-button" maxWidth="Infinity"/>
+            <Button text="✈️ Flight Planning" onAction="#loadFlightPlanning" styleClass="sidebar-button" maxWidth="Infinity"/>
+            <Button text="⚖️ Weight & Balance" onAction="#loadWeightBalance" styleClass="sidebar-button" maxWidth="Infinity"/>
+            <Button text="📈 Performance" onAction="#loadPerformance" styleClass="sidebar-button" maxWidth="Infinity"/>
+
+            <Separator/>
+
+            <Label text="TRAINING" styleClass="sidebar-section">
+                <font>
+                    <Font name="System Bold" size="11"/>
+                </font>
+                <VBox.margin>
+                    <Insets top="10"/>
+                </VBox.margin>
+            </Label>
+            <Button text="🎓 CBT Modules" onAction="#loadCBT" styleClass="sidebar-button" maxWidth="Infinity"/>
+            <Button text="📻 ATC Phraseology" onAction="#loadATCPhraseology" styleClass="sidebar-button" maxWidth="Infinity"/>
+            <Button text="🚨 Emergency" onAction="#loadEmergency" styleClass="sidebar-button" maxWidth="Infinity"/>
+            <Button text="🎮 Simulator 2D" onAction="#loadSimulator" styleClass="sidebar-button" maxWidth="Infinity"/>
+
+            <Separator/>
+
+            <Label text="MAINTENANCE & DRONE" styleClass="sidebar-section">
+                <font>
+                    <Font name="System Bold" size="11"/>
+                </font>
+                <VBox.margin>
+                    <Insets top="10"/>
+                </VBox.margin>
+            </Label>
+            <Button text="🔧 Maintenance" onAction="#loadMaintenance" styleClass="sidebar-button" maxWidth="Infinity"/>
+            <Button text="🚁 Drone Planner" onAction="#loadDrone" styleClass="sidebar-button" maxWidth="Infinity"/>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane styleClass="content-area">
+            <Label text="Welcome to AeroSuite" style="-fx-font-size: 24px; -fx-text-fill: #666;"/>
+        </StackPane>
+    </center>
+
+</BorderPane>

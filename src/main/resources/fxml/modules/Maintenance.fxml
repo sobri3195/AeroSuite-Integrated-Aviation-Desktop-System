@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.aerosuite.view.modules.MaintenanceController"
+      spacing="15" styleClass="content-area">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="20">
+        <Label text="Aircraft Maintenance Record System" styleClass="card-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="+ New Log" onAction="#addMaintenanceLog" styleClass="button-success"/>
+    </HBox>
+
+    <HBox spacing="20">
+        <VBox spacing="10" styleClass="card" prefWidth="300">
+            <Label text="Aircraft Status" styleClass="section-title"/>
+            <ListView fx:id="aircraftList" prefHeight="400"/>
+        </VBox>
+
+        <VBox HBox.hgrow="ALWAYS" spacing="15" styleClass="card">
+            <Label text="Maintenance Logs" styleClass="section-title"/>
+            <TableView fx:id="maintenanceTable" prefHeight="300">
+                <columns>
+                    <TableColumn text="Date" prefWidth="100"/>
+                    <TableColumn text="Type" prefWidth="150"/>
+                    <TableColumn text="Description" prefWidth="250"/>
+                    <TableColumn text="Technician" prefWidth="150"/>
+                    <TableColumn text="Engine Hrs" prefWidth="100"/>
+                    <TableColumn text="Status" prefWidth="100"/>
+                </columns>
+            </TableView>
+
+            <Separator/>
+
+            <Label text="Inspection Reminders" styleClass="section-title"/>
+            <TextArea fx:id="remindersArea" prefRowCount="5" editable="false" 
+                      text="50-hour inspection: Due in 12.5 hours&#10;100-hour inspection: Due in 45.3 hours&#10;Annual inspection: Due in 245 days"/>
+        </VBox>
+    </HBox>
+
+</VBox>

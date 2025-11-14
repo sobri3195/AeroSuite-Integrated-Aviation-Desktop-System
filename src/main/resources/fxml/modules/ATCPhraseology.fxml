@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.aerosuite.view.modules.ATCPhraseologyController"
+      spacing="15" styleClass="content-area">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="ATC Phraseology Trainer" styleClass="card-title"/>
+
+    <HBox spacing="20">
+        <VBox spacing="15" styleClass="card" prefWidth="250">
+            <Label text="Scenarios" styleClass="section-title"/>
+            
+            <ListView fx:id="scenariosList" prefHeight="400">
+                <items>
+                    <javafx.collections.FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Taxi Clearance"/>
+                        <String fx:value="Takeoff Clearance"/>
+                        <String fx:value="Departure"/>
+                        <String fx:value="Enroute"/>
+                        <String fx:value="Approach"/>
+                        <String fx:value="Landing"/>
+                        <String fx:value="Emergency"/>
+                        <String fx:value="VFR Flight Following"/>
+                    </javafx.collections.FXCollections>
+                </items>
+            </ListView>
+
+            <Button text="Practice Selected" onAction="#practiceScenario" styleClass="button-success" maxWidth="Infinity"/>
+        </VBox>
+
+        <VBox HBox.hgrow="ALWAYS" spacing="15" styleClass="card">
+            <Label text="Phraseology Script" styleClass="section-title"/>
+            
+            <TextArea fx:id="scriptArea" prefRowCount="15" wrapText="true" editable="false"/>
+
+            <HBox spacing="10">
+                <Button text="Play Audio" onAction="#playAudio"/>
+                <Button text="Record" onAction="#recordAudio" styleClass="button-warning"/>
+            </HBox>
+
+            <Separator/>
+
+            <Label text="Practice Statistics" styleClass="section-title"/>
+            <GridPane hgap="15" vgap="10">
+                <Label text="Scenarios Completed:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Label fx:id="completedLabel" text="0/8" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            </GridPane>
+        </VBox>
+    </HBox>
+
+</VBox>

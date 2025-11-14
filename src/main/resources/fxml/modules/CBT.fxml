@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.aerosuite.view.modules.CBTController"
+      spacing="15" styleClass="content-area">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Computer Based Training (CBT)" styleClass="card-title"/>
+
+    <HBox spacing="20">
+        <VBox spacing="15" styleClass="card" prefWidth="300">
+            <Label text="Training Modules" styleClass="section-title"/>
+            
+            <ListView fx:id="modulesList" prefHeight="400">
+                <items>
+                    <javafx.collections.FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Aerodynamics"/>
+                        <String fx:value="Meteorology"/>
+                        <String fx:value="Air Law"/>
+                        <String fx:value="Navigation"/>
+                        <String fx:value="Performance"/>
+                        <String fx:value="Flight Planning"/>
+                        <String fx:value="Aircraft Systems"/>
+                        <String fx:value="Human Factors"/>
+                    </javafx.collections.FXCollections>
+                </items>
+            </ListView>
+
+            <Button text="Start Exam" onAction="#startExam" styleClass="button-success" maxWidth="Infinity"/>
+        </VBox>
+
+        <VBox HBox.hgrow="ALWAYS" spacing="15" styleClass="card">
+            <Label text="Module Content" styleClass="section-title"/>
+            
+            <Label fx:id="moduleDescriptionLabel" text="Select a module to view content" wrapText="true"/>
+            
+            <Separator/>
+            
+            <Label text="Exam Statistics" styleClass="section-title"/>
+            
+            <GridPane hgap="15" vgap="10">
+                <Label text="Modules Completed:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Label fx:id="completedModulesLabel" text="0/8" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                
+                <Label text="Average Score:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <Label fx:id="averageScoreLabel" text="0%" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                
+                <Label text="Last Exam:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <Label fx:id="lastExamLabel" text="None" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            </GridPane>
+        </VBox>
+    </HBox>
+
+    <VBox spacing="10" styleClass="card">
+        <Label text="Recent Exam Results" styleClass="section-title"/>
+        <TableView fx:id="examResultsTable" prefHeight="200">
+            <columns>
+                <TableColumn text="Date" prefWidth="150"/>
+                <TableColumn text="Module" prefWidth="200"/>
+                <TableColumn text="Score" prefWidth="100"/>
+                <TableColumn text="Questions" prefWidth="100"/>
+                <TableColumn text="Duration" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </VBox>
+
+</VBox>

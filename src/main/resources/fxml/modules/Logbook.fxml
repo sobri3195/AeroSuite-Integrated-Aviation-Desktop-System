@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.aerosuite.view.modules.LogbookController"
+      spacing="15" styleClass="content-area">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="20">
+        <Label text="Flight Logbook Digital" styleClass="card-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="+ New Entry" onAction="#showNewEntryDialog" styleClass="button-success"/>
+        <Button text="Export to PDF" onAction="#exportToPDF"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Filter by Pilot:"/>
+        <ComboBox fx:id="pilotFilterCombo" prefWidth="200"/>
+        <Button text="Show All" onAction="#showAllEntries"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label text="Total Hours:"/>
+        <Label fx:id="totalHoursFilterLabel" text="0.0" styleClass="label-bold"/>
+    </HBox>
+
+    <TableView fx:id="logbookTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="dateColumn" text="Date" prefWidth="100"/>
+            <TableColumn fx:id="pilotColumn" text="Pilot" prefWidth="120"/>
+            <TableColumn fx:id="aircraftColumn" text="Aircraft" prefWidth="100"/>
+            <TableColumn fx:id="departureColumn" text="From" prefWidth="80"/>
+            <TableColumn fx:id="arrivalColumn" text="To" prefWidth="80"/>
+            <TableColumn fx:id="picTimeColumn" text="PIC" prefWidth="60"/>
+            <TableColumn fx:id="sicTimeColumn" text="SIC" prefWidth="60"/>
+            <TableColumn fx:id="dualTimeColumn" text="Dual" prefWidth="60"/>
+            <TableColumn fx:id="soloTimeColumn" text="Solo" prefWidth="60"/>
+            <TableColumn fx:id="nightTimeColumn" text="Night" prefWidth="60"/>
+            <TableColumn fx:id="xcTimeColumn" text="X-C" prefWidth="60"/>
+            <TableColumn fx:id="totalTimeColumn" text="Total" prefWidth="70"/>
+            <TableColumn fx:id="landingsDayColumn" text="Day Ldg" prefWidth="70"/>
+            <TableColumn fx:id="landingsNightColumn" text="Night Ldg" prefWidth="70"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="20" styleClass="card">
+        <padding>
+            <Insets top="15" right="15" bottom="15" left="15"/>
+        </padding>
+        <VBox spacing="5">
+            <Label text="Total Statistics" styleClass="section-title"/>
+            <GridPane hgap="15" vgap="5">
+                <Label text="Total Flights:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Label fx:id="totalFlightsLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="label-bold"/>
+                
+                <Label text="PIC Time:" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                <Label fx:id="picTotalLabel" text="0.0" GridPane.columnIndex="3" GridPane.rowIndex="0" styleClass="label-bold"/>
+                
+                <Label text="Dual Time:" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
+                <Label fx:id="dualTotalLabel" text="0.0" GridPane.columnIndex="5" GridPane.rowIndex="0" styleClass="label-bold"/>
+                
+                <Label text="Night Time:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <Label fx:id="nightTotalLabel" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="label-bold"/>
+                
+                <Label text="X-Country:" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                <Label fx:id="xcTotalLabel" text="0.0" GridPane.columnIndex="3" GridPane.rowIndex="1" styleClass="label-bold"/>
+                
+                <Label text="Total Time:" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+                <Label fx:id="totalTimeLabel" text="0.0" GridPane.columnIndex="5" GridPane.rowIndex="1" styleClass="label-bold"/>
+            </GridPane>
+        </VBox>
+    </HBox>
+
+</VBox>
