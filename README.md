@@ -209,10 +209,42 @@ The application includes dummy data on first run:
 
 This is a demonstration project for aviation management systems.
 
-## 👥 Support
+## 👨‍💻 Author
 
-For questions or issues, please refer to the project documentation.
+**Lettu Kes dr. Muhammad Sobri Maulana, S.Kom, CEH, OSCP, OSCE**
+
+- 🔗 GitHub: [github.com/sobri3195](https://github.com/sobri3195)
+- 📧 Email: [muhammadsobrimaulana31@gmail.com](mailto:muhammadsobrimaulana31@gmail.com)
+- 🌐 Website: [muhammadsobrimaulana.netlify.app](https://muhammadsobrimaulana.netlify.app)
+- 🌐 Portfolio: [muhammad-sobri-maulana-kvr6a.sevalla.page](https://muhammad-sobri-maulana-kvr6a.sevalla.page/)
+
+### 📱 Social Media
+- 📺 YouTube: [@muhammadsobrimaulana6013](https://www.youtube.com/@muhammadsobrimaulana6013)
+- 📱 TikTok: [@dr.sobri](https://www.tiktok.com/@dr.sobri)
+- 💬 Telegram: [winlin_exploit](https://t.me/winlin_exploit)
+- 💬 WhatsApp Group: [Join Community](https://chat.whatsapp.com/B8nwRZOBMo64GjTwdXV8Bl)
+
+## 💖 Support & Donation
+
+If you find this project helpful, consider supporting the development:
+
+- ☕ **Trakteer**: [trakteer.id/g9mkave5gauns962u07t](https://trakteer.id/g9mkave5gauns962u07t)
+- 💳 **Lynk.id**: [lynk.id/muhsobrimaulana](https://lynk.id/muhsobrimaulana)
+- 🛒 **Gumroad**: [maulanasobri.gumroad.com](https://maulanasobri.gumroad.com/)
+- 🎨 **Karya Karsa**: [karyakarsa.com/muhammadsobrimaulana](https://karyakarsa.com/muhammadsobrimaulana)
+- 💰 **Nyawer**: [nyawer.co/MuhammadSobriMaulana](https://nyawer.co/MuhammadSobriMaulana)
+
+Your support helps maintain and improve this project. Thank you! 🙏
+
+## 👥 Contact & Support
+
+For questions, issues, or collaboration:
+- 📧 Email: muhammadsobrimaulana31@gmail.com
+- 💬 Telegram: [t.me/winlin_exploit](https://t.me/winlin_exploit)
+- 💬 WhatsApp Community: [Join Here](https://chat.whatsapp.com/B8nwRZOBMo64GjTwdXV8Bl)
 
 ---
 
 **AeroSuite** - Your complete aviation management solution
+
+*Developed with ❤️ by Dr. Muhammad Sobri Maulana*
